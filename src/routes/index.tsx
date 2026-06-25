@@ -84,13 +84,34 @@ function Index() {
 
             {/* Right – image + cards */}
             <div className="relative min-h-[600px]">
-              <img
-                src={heroFamily}
-                alt="Happy expat family"
-                width={1280}
-                height={896}
-                className="absolute right-0 top-0 h-[600px] w-[680px] max-w-none rounded-md object-cover"
-              />
+              <div className="absolute right-0 top-0 h-[600px] w-[680px] max-w-none overflow-hidden">
+                <img
+                  src={heroFamily}
+                  alt="Happy expat family"
+                  width={1280}
+                  height={896}
+                  className="h-full w-full object-cover"
+                />
+                {/* Blur strip on the left edge of the image */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute left-0 top-0 h-full w-[160px]"
+                  style={{
+                    backdropFilter: "blur(14px)",
+                    WebkitMaskImage: "linear-gradient(to right, black 40%, transparent 100%)",
+                    maskImage: "linear-gradient(to right, black 40%, transparent 100%)",
+                  }}
+                />
+                {/* Color fade blending image into hero background */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute left-0 top-0 h-full w-[260px]"
+                  style={{
+                    background:
+                      "linear-gradient(to right, var(--hero-bg) 0%, color-mix(in oklab, var(--hero-bg) 65%, transparent) 35%, transparent 100%)",
+                  }}
+                />
+              </div>
               {/* Compare Plans card – top right */}
               <div className="absolute right-0 top-6 z-10 w-[300px] rounded-xl bg-white p-5 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.25)]">
                 <div className="flex items-center justify-between">
