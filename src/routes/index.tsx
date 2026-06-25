@@ -89,7 +89,22 @@ function Index() {
                 alt="Happy expat family"
                 width={1280}
                 height={896}
-                className="absolute right-0 top-0 h-[600px] w-[680px] max-w-none rounded-md object-cover"
+                className="absolute right-0 top-0 h-[600px] w-[680px] max-w-none object-cover"
+              />
+              {/* Left-edge fade to blend image into hero background */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute right-0 top-0 h-[600px] w-[680px] max-w-none"
+                style={{
+                  background:
+                    "linear-gradient(to right, var(--hero-bg) 0%, color-mix(in oklab, var(--hero-bg) 70%, transparent) 10%, color-mix(in oklab, var(--hero-bg) 30%, transparent) 20%, transparent 32%)",
+                  backdropFilter: "blur(0px)",
+                }}
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute right-0 top-0 h-[600px] w-[120px]"
+                style={{ backdropFilter: "blur(6px)", WebkitMaskImage: "linear-gradient(to right, black, transparent)", maskImage: "linear-gradient(to right, black, transparent)" }}
               />
               {/* Compare Plans card – top right */}
               <div className="absolute right-0 top-6 z-10 w-[300px] rounded-xl bg-white p-5 shadow-[0_20px_50px_-15px_rgba(15,23,42,0.25)]">
